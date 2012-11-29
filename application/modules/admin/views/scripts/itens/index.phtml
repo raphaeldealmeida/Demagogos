@@ -1,0 +1,25 @@
+<h2>Listando Itens</h2>
+
+<ul>
+    <li><a href="<?=$this->url(array('controller'=>'itens','action'=>'add'));?>">Criar novo Item</a></li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Ação</th>
+    </tr>
+<?if(count($this->itens) > 0):?>
+    <?foreach($this->itens as $item):?>
+    <tr>
+        <td><?=$item->getId()?></td>
+        <td><?=$item->getNome()?></td>
+        <td>
+            <a href="<?=$this->url(array('controller'=>'itens','action'=>'edit','id'=> $item->getId()));?>">Editar</a> | 
+            <a class="confirm" href="<?=$this->url(array('controller'=>'itens','action'=>'delete','id'=> $item->getId()));?>">Excluir</a>
+        </td>
+    </tr>
+    <?endforeach;?>
+<?endif;?>
+</table>

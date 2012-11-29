@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script defer src="/js/jquery-1.7.min.js"></script>
+  <script defer src="/js/application.admin.js"></script>
+  <link rel="stylesheet" href="/css/application.admin.css" type="text/css" />
+</head>
+<body>
+   <?php
+     if (count($this->messages) > 0) { 
+       printf("<div id='mensagem'>%s</div>", $this->messages[0]); 
+     }
+    ?>
+    <h1>Admin</h1>
+    <ul id="menu">
+        <li>
+            <a href="<?=$this->url(array('controller'=>'tarefas',
+            'action'=>'index', 'module'=> 'admin'))?>">Tarefas</a>
+        </li>
+        <li>
+            <a href="<?=$this->url(array('controller'=>'itens',
+            'action'=>'index', 'module'=> 'admin'))?>">Itens</a>
+        </li>
+        <?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
+        <li>
+            <a href="<?=$this->url(array('controller'=>'session',
+            'action'=>'logout', 'module'=> 'admin'))?>">Logout</a>
+        </li>
+        <?endif;?>
+    </ul>
+<?php echo $this->layout()->content; ?>
+</body>
+</html>

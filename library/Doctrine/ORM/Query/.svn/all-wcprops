@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query
+END
+ParserResult.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/ParserResult.php
+END
+Parser.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/Parser.php
+END
+ParameterTypeInferer.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/ParameterTypeInferer.php
+END
+ResultSetMappingBuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/ResultSetMappingBuilder.php
+END
+Expr.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/Expr.php
+END
+Lexer.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/Lexer.php
+END
+Printer.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/Printer.php
+END
+QueryException.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/QueryException.php
+END
+SqlWalker.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/SqlWalker.php
+END
+TreeWalker.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/TreeWalker.php
+END
+ResultSetMapping.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/ResultSetMapping.php
+END
+TreeWalkerAdapter.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/TreeWalkerAdapter.php
+END
+TreeWalkerChain.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/2/trunk/library/Doctrine/ORM/Query/TreeWalkerChain.php
+END

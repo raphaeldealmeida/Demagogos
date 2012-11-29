@@ -1,0 +1,11 @@
+<div id="conteudo">
+    <?if(count($this->inventario)):?>
+    <ul>
+        <?foreach($this->inventario as $inventario):?>
+        <li>
+        <?=$inventario->getQuantidade();?> <?=$inventario->getItem()->getNome();?>
+        </li>
+        <?endforeach;?>
+    </ul>
+    <?endif;?>
+</div>

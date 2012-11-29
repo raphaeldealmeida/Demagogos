@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Driver/PDOSqlsrv
+END
+Driver.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Driver/PDOSqlsrv/Driver.php
+END
+Connection.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Driver/PDOSqlsrv/Connection.php
+END

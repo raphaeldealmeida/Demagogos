@@ -1,0 +1,80 @@
+10
+
+dir
+37
+https://demagogos.googlecode.com/svn/trunk
+https://demagogos.googlecode.com/svn
+
+
+
+2011-12-23T13:48:15.189086Z
+37
+jaguarnet7@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+5aa71520-174e-097d-0f73-cc24f7d49647
+
+tests
+dir
+
+application
+dir
+
+library
+dir
+
+.travis.yml
+file
+
+
+
+
+2011-12-04T21:39:43.105521Z
+3c9b05b5f7f6d7a0183a0b61a268eba2
+2011-12-22T14:42:18.061017Z
+35
+jaguarnet7@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+191
+
+bin
+dir
+
+docs
+dir
+
+public
+dir
+

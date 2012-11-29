@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Schema/Visitor
+END
+Graphviz.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Schema/Visitor/Graphviz.php
+END
+CreateSchemaSqlCollector.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Schema/Visitor/CreateSchemaSqlCollector.php
+END
+DropSchemaSqlCollector.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Schema/Visitor/DropSchemaSqlCollector.php
+END
+Visitor.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/library/Doctrine/DBAL/Schema/Visitor/Visitor.php
+END

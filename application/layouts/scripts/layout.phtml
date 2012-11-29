@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Demagogos</title>
+    <meta charset="utf-8" />    
+    <script defer src="/js/jquery-1.7.min.js"></script>
+    <script defer src="/js/application.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/application.css" type="text/css" />
+</head>
+<body>
+   <?php
+     if (count($this->messages) > 0) { 
+       printf("<div id='mensagem'>%s</div>", $this->messages[0]); 
+     }
+    ?>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Demagogos</a>
+      <ul class="nav">
+        <li>
+          <a href="#">Jogador: <?=$this->usuario->getNome()?></a>
+        </li>
+        <li>
+          <a href="#">Saldo: <?=$this->usuario->getSaldo()?></a>
+        </li>
+        <li>
+          <a href="#"><?=$this->placeholder('energia'); ?></a>
+        </li>
+        
+        <li>
+          <a href="<?= $this->url(array('controller'=>'index','action'=>'dashboard')) ?>">Tarefas</a>
+        </li>
+        <li>
+          <a href="<?= $this->url(array('controller'=>'index','action'=>'inventario')) ?>">Inventário</a>
+        </li>
+        <li>
+          <a href="#">Propriedades</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    <?=$this->layout()->content; ?>
+</body>
+</html>

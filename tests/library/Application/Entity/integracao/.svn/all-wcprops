@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/33/trunk/tests/library/Application/Entity/integracao
+END
+UsuarioIntegrationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/33/trunk/tests/library/Application/Entity/integracao/UsuarioIntegrationTest.php
+END
+TarefaIntegrationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/33/trunk/tests/library/Application/Entity/integracao/TarefaIntegrationTest.php
+END

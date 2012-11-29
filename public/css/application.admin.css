@@ -1,0 +1,25 @@
+ul#menu{
+    border: 1px solid #000;
+}
+
+ul#menu li{
+    display: inline;
+}
+
+table, tr{
+    border: 1px solid #000;
+    width: 100%;
+}
+
+th{
+    background-color: #000;
+    color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+tr:hover{
+    background-color: #0398CA;
+}

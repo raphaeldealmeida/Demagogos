@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Demagogos</title>
+    <meta charset="utf-8" />    
+    <script defer src="/js/jquery-1.7.min.js"></script>
+    <script defer src="/js/application.js"></script>
+    <link rel="stylesheet" href="/css/application.css" type="text/css" />
+</head>
+<body>
+   <?php
+     if (count($this->messages) > 0) { 
+       printf("<div id='mensagem'>%s</div>", $this->messages[0]); 
+     }
+    ?>
+    <div id="usuario">
+        <?if(!is_null($this->usuario)):?>
+            Nome: <?=$this->usuario->getNome()?> |
+            Saldo: <?=$this->usuario->getSaldo()?> |
+        <?endif;?>
+        <?php echo $this->placeholder('energia'); ?>
+    </div>
+    <ul id="menu">
+        <li><a href="<?=$this->url(array('controller'=>'index','action'=>'dashboard'));?>">Tarefas</a></li>
+        <li><a href="<?=$this->url(array('controller'=>'index','action'=>'inventario'));?>">Inventário</a></li>
+        <li><strike>Propriedades</strike></li>
+    </ul>
+    <?php echo $this->layout()->content; ?>
+</body>
+</html>

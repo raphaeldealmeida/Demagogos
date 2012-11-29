@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>application</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="highcharts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+          var classCoverageDistribution = new Highcharts.Chart({
+             chart: {
+                renderTo: 'classCoverageDistribution',
+                type: 'column'
+             },
+             title: {text: ''},
+             legend: {enabled: false},
+             credits: {enabled: false},
+             tooltip: {enabled: false},
+             xAxis: {
+                 labels: {style: {fontSize: '8px'}},
+                 categories: [
+                 '0%','0-10%','10-20%','20-30%','30-40%','40-50%','50-60%','60-70%','70-80%','80-90%','90-100%','100%'
+                 ]
+            },
+            yAxis: {
+                title: '',
+                labels: {style: {fontSize: '8px'}},
+            },
+            series: [{
+                data: [20,0,0,0,0,0,0,0,0,0,0,0]
+            }],
+          });
+
+        var classComplexity = new Highcharts.Chart({
+            chart: {
+              renderTo: 'classComplexity',
+              type: 'scatter'
+            },
+            title: {text: ''},
+            legend: {enabled: false},
+            credits: {enabled: false},
+            xAxis: {
+               labels: {enabled: false},
+            },
+            yAxis: {
+              title: '',
+              labels: {enabled: false},
+            },
+            tooltip: {
+                formatter: function() {
+                    return this.point.config[2];
+                }
+            },
+            series: [{
+              data: [[0,4,"<a href=\"application_Bootstrap.php.html#3\">Bootstrap<\/a>"],[0,2,"<a href=\"application_forms_Beneficio_Item.php.html#3\">Form_Beneficio_Item<\/a>"],[0,1,"<a href=\"application_forms_Beneficio_Monetario.php.html#3\">Form_Beneficio_Monetario<\/a>"],[0,1,"<a href=\"application_forms_Item.php.html#3\">Form_Item<\/a>"],[0,3,"<a href=\"application_forms_Requisito.php.html#3\">Form_Requisito<\/a>"],[0,2,"<a href=\"application_forms_Requisito_Item.php.html#3\">Form_Requisito_Item<\/a>"],[0,1,"<a href=\"application_forms_Requisito_Monetario.php.html#3\">Form_Requisito_Monetario<\/a>"],[0,2,"<a href=\"application_forms_Requisito_Tarefa.php.html#3\">Form_Requisito_Tarefa<\/a>"],[0,1,"<a href=\"application_forms_Tarefa.php.html#3\">Form_Tarefa<\/a>"],[0,1,"<a href=\"application_modules_admin_Bootstrap.php.html#3\">Admin_Bootstrap<\/a>"],[0,8,"<a href=\"application_modules_admin_controllers_BeneficiosController.php.html#5\">Admin_BeneficiosController<\/a>"],[0,2,"<a href=\"application_modules_admin_controllers_IndexController.php.html#3\">Admin_IndexController<\/a>"],[0,12,"<a href=\"application_modules_admin_controllers_ItensController.php.html#3\">Admin_ItensController<\/a>"],[0,9,"<a href=\"application_modules_admin_controllers_RequisitosController.php.html#5\">Admin_RequisitosController<\/a>"],[0,7,"<a href=\"application_modules_admin_controllers_SessionController.php.html#3\">Admin_SessionController<\/a>"],[0,14,"<a href=\"application_modules_admin_controllers_TarefasController.php.html#3\">Admin_TarefasController<\/a>"],[0,1,"<a href=\"application_modules_admin_forms_Login.php.html#2\">Admin_Form_Login<\/a>"],[0,2,"<a href=\"application_modules_default_Bootstrap.php.html#3\">Default_Bootstrap<\/a>"],[0,9,"<a href=\"application_modules_default_controllers_ErrorController.php.html#3\">Default_ErrorController<\/a>"],[0,24,"<a href=\"application_modules_default_controllers_IndexController.php.html#4\">Default_IndexController<\/a>"]],
+              marker: {
+                  symbol: 'diamond'
+              }
+            }],
+        });
+    });
+    </script>
+  </head>
+
+  <body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr><td class="title">application</td></tr>
+      <tr><td><div align="center"><p><a href="application.html">Back to Code Coverage report</a></p></div></td></tr>
+      <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
+    </table>
+
+    <br />
+
+    <center>
+      <table width="90%" cellpadding="2" cellspacing="1" border="0">
+        <tr>
+          <td valign="top">
+            <h2>Class Coverage Distribution</h2>
+            <div id="classCoverageDistribution"></div>
+          </td>
+
+          <td valign="top">
+            <h2>Class Complexity</h2>
+            <div id="classComplexity"></div>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <h2>Top Project Risks</h2>
+            <ul>
+              <li><a href="application_modules_default_controllers_IndexController.php.html#4">Default_IndexController</a> (600)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#3">Admin_TarefasController</a> (210)</li>
+              <li><a href="application_modules_admin_controllers_ItensController.php.html#3">Admin_ItensController</a> (156)</li>
+              <li><a href="application_modules_default_controllers_ErrorController.php.html#3">Default_ErrorController</a> (90)</li>
+              <li><a href="application_modules_admin_controllers_RequisitosController.php.html#5">Admin_RequisitosController</a> (90)</li>
+              <li><a href="application_modules_admin_controllers_BeneficiosController.php.html#5">Admin_BeneficiosController</a> (72)</li>
+              <li><a href="application_modules_admin_controllers_SessionController.php.html#3">Admin_SessionController</a> (56)</li>
+              <li><a href="application_Bootstrap.php.html#3">Bootstrap</a> (20)</li>
+              <li><a href="application_forms_Requisito.php.html#3">Form_Requisito</a> (12)</li>
+              <li><a href="application_forms_Beneficio_Item.php.html#3">Form_Beneficio_Item</a> (6)</li>
+
+            </ul>
+          </td>
+
+          <td valign="top">
+            <h2>Least Tested Methods</h2>
+            <ul>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#30">Admin_TarefasController::showAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#19">Admin_TarefasController::indexAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#43">Admin_TarefasController::addAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#67">Admin_TarefasController::editAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#104">Admin_TarefasController::deleteAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_TarefasController.php.html#6">Admin_TarefasController::init</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_SessionController.php.html#36">Admin_SessionController::logoutAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_RequisitosController.php.html#25">Admin_RequisitosController::addAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_RequisitosController.php.html#67">Admin_RequisitosController::deleteAction</a> (0%)</li>
+              <li><a href="application_modules_admin_controllers_SessionController.php.html#6">Admin_SessionController::init</a> (0%)</li>
+
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <br />
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.13</a> and PHPUnit 3.6.10 at Wed Nov 28 23:42:40 BRST 2012.</td></tr>
+    </table>
+
+    <br/>
+  </body>
+</html>

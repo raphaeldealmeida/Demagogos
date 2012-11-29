@@ -1,0 +1,8 @@
+K 10
+svn:ignore
+V 43
+.zfproject.xml
+.travis.yml.swp
+.travis.yml
+
+END

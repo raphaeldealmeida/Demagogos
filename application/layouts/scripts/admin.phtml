@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script defer src="/js/jquery-1.7.min.js"></script>
+  <script defer src="/js/application.admin.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!--  <link rel="stylesheet" href="/css/application.admin.css" type="text/css" />-->
+</head>
+<body>
+   <?php
+     if (count($this->messages) > 0) {
+       printf("<div id='mensagem'>%s</div>", $this->messages[0]); 
+     }
+    ?>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Admin</a>
+      <ul class="nav">
+        <li>
+          <a href="<?= $this->url(array('controller' => 'tarefas',
+              'action' => 'index', 'module' => 'admin')) ?>">
+            Tarefas
+          </a>
+        </li>
+        <li>
+          <a href="<?= $this->url(array('controller' => 'itens',
+                 'action' => 'index', 'module' => 'admin')) ?>">
+            Itens
+          </a>
+        </li>
+             <? if (Zend_Auth::getInstance()->hasIdentity()): ?>
+          <li>
+            <a href="<?= $this->url(array('controller' => 'session',
+                   'action' => 'logout', 'module' => 'admin')) ?>">
+              Logout
+            </a>
+          </li>
+      <? endif; ?>
+      </ul>
+    </div>
+  </div>
+<?= $this->layout()->content; ?>
+</body>
+</html>

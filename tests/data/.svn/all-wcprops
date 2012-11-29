@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/35/trunk/tests/data
+END
+test.db
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/40/trunk/tests/data/test.db
+END
+Seeds.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/13/trunk/tests/data/Seeds.php
+END

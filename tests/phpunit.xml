@@ -1,0 +1,31 @@
+<phpunit bootstrap="./application/TestHelper.php" colors="true" verbose="true">
+        <testsuite name="Application" >
+                <directory>./library</directory>
+                <directory>./application</directory>
+        </testsuite>
+        <filter>
+                <whitelist>
+                        <directory suffix=".php">../application</directory>
+                        <directory suffix=".php">../library</directory>
+                        <exclude>
+                                <directory suffix=".php">../library/Application/Entity/Proxy/</directory>
+                                <directory suffix=".phtml">../application/</directory>
+                                <directory suffix=".php">../library/Doctrine</directory>
+                                <directory suffix=".php">../library/Bisna</directory>
+                                <directory suffix=".php">../library/Symfony</directory>
+                                <directory suffix=".php">../library/ZendX</directory>
+                                <directory suffix=".php">../library/php-sdk</directory>
+                                <directory suffix=".php">../library/ZFDebug</directory>
+                                <file>../application/TestHelper.php</file>
+                        </exclude>
+                </whitelist>
+        </filter>
+	<logging>
+		<log type="coverage-html" target="./log/report" charset="UTF-8"
+		yui="true" highlight = "true" lowUpperBound="50" highLowerBound="80" />
+		<log type="testdox" target="./log/testdox.html" />
+	</logging>
+       <!-- <listeners>
+            <listener class="\Mockery\Adapter\Phpunit\TestListener" file="Mockery/Adapter/Phpunit/TestListener.php"></listener>
+        </listeners> -->
+</phpunit>

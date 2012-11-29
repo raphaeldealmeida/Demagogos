@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/29/trunk/application/modules/admin/views/scripts/_partials
+END
+BeneficioMonetario.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/27/trunk/application/modules/admin/views/scripts/_partials/BeneficioMonetario.phtml
+END
+RequisitoMonetario.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/24/trunk/application/modules/admin/views/scripts/_partials/RequisitoMonetario.phtml
+END
+BeneficioItem.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/27/trunk/application/modules/admin/views/scripts/_partials/BeneficioItem.phtml
+END
+RequisitoItem.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/29/trunk/application/modules/admin/views/scripts/_partials/RequisitoItem.phtml
+END
+RequisitoTarefa.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/24/trunk/application/modules/admin/views/scripts/_partials/RequisitoTarefa.phtml
+END

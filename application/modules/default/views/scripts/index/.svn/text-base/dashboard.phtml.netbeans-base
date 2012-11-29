@@ -1,0 +1,44 @@
+<h3>Tarefas</h3>
+<?if(count($this->tarefas)):?>
+<ul id="tarefas">
+    <?foreach($this->tarefas as $tarefa_realizacada):
+        $tarefa = $tarefa_realizacada['tarefa'];
+        $realizacao = (array_key_exists('realizacao', $tarefa_realizacada))? $tarefa_realizacada['realizacao']:null;
+    ?>
+
+
+    <li>
+        <div class="descricao">
+            <h4><?=$tarefa->getNome()?></h4>
+            <? if(!is_null($realizacao))
+                $execucao = $realizacao->getExecucao() * $realizacao->getTarefa()->getPasso(); 
+               else 
+                $execucao = 0;?>
+            <progress value="<?=($execucao>100)? 100 : $execucao ?>" max="100"> Dominado: <?=($execucao>100)? 100 : $execucao ?>% </progress>
+        </div>
+        <div class="requisito">
+            Custo: <?=$tarefa->getCusto()?>
+            <?if(!$tarefa->getRequisitos()->isEmpty()):?>
+            <ul>
+            <?foreach($tarefa->getRequisitos() as $requisito):?>
+                <li>Requisito: <?=$this->partial('_partials/'.substr(get_class($requisito), strrpos(get_class($requisito), '\\')+1).'.phtml', array('requisito'=>$requisito));?></li>
+            <?endforeach;?>
+            </ul>
+            <?endif;?>
+        </div>
+        <div class="beneficio">
+            <?if(!$tarefa->getBeneficios()->isEmpty()):?>
+            <ul>
+            <?foreach($tarefa->getBeneficios() as $beneficio):?>
+                <li><?=$this->partial('_partials/'.substr(get_class($beneficio), strrpos(get_class($beneficio), '\\')+1).'.phtml', array('beneficio'=>$beneficio));?></li>
+            <?endforeach;?>
+            </ul>
+            <?endif;?>
+        </div>
+        <div class="acao">
+            <a class="button" href="<?=$this->url(array('controller'=>'index','action'=>'realizar','tarefa_id'=> $tarefa->getId()));?>">Realizar Tarefa</a>
+        </div>
+    </li>
+    <?endforeach;?>
+</ul>
+<?endif;?>

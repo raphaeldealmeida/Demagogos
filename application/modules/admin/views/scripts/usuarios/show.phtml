@@ -1,0 +1,8 @@
+<h2><?= $this->usuario->getNome() ?></h2>
+
+<p>Nome: <?= $this->usuario->getNome() ?></p>
+<p>Energia: <?= $this->usuario->getEnergia() ?> / <?= $this->usuario->getEnergiaMaxima() ?></p>
+
+<a href="<?= $this->url(array('controller'=>'usuarios','action'=>'index'));?>">Listar</a> | 
+<a href="<?= $this->url(array('controller'=>'usuarios','action'=>'edit','id'=> $this->usuario->getId()));?>">Editar</a> |
+<a class="confirm" href="<?=$this->url(array('controller'=>'usuario','action'=>'delete','id'=> $this->usuario->getId()));?>">Excluir</a>

@@ -1,0 +1,3 @@
+<?=$this->form?>
+<a href="<?= $this->url(array('controller'=>'usuarios','action'=>'index'));?>">Listar</a> | 
+<a class="confirm" href="<?=$this->url(array('controller'=>'usuarios','action'=>'delete','id'=> $this->form->getValue('id')));?>">Excluir</a>

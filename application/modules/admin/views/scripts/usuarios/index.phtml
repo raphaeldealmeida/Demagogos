@@ -1,0 +1,35 @@
+<h2>Listando Usuários</h2>
+<ul>
+    <li>
+      <a class="btn btn-primary" href="<?= $this->url(array('controller'=>'usuarios','action'=>'add')) ?>">
+        Criar novo Usuário
+      </a>
+    </li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Energia</th>
+        <th>Saldo</th>
+        <th>Email</th>
+        <th>Ação</th>
+    </tr>
+<?if(count($this->usuarios) > 0):?>
+    <?foreach($this->usuarios as $usuario):?>
+    <tr>
+        <td><?= $usuario->getId() ?></td>
+        <td><?= $usuario->getNome() ?></td>
+        <td><?= $usuario->getEnergia() ?> / <?= $usuario->getEnergiaMaxima() ?></td>
+        <td><?= $usuario->getSaldo() ?></td>
+        <td><?= $usuario->getEmail() ?></td>
+        <td>
+            <a href="<?= $this->url(array('controller'=>'usuarios','action'=>'show','id'=> $usuario->getId())) ?>">Ver</a> | 
+            <a href="<?= $this->url(array('controller'=>'usuarios','action'=>'edit','id'=> $usuario->getId())) ?>">Editar</a> | 
+            <a class="confirm" href="<?= $this->url(array('controller'=>'usuarios','action'=>'delete','id'=> $usuario->getId())) ?>">Excluir</a>
+        </td>
+    </tr>
+    <?endforeach;?>
+<?endif;?>
+</table>

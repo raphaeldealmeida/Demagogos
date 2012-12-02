@@ -23,10 +23,7 @@ class UsuarioIntegrationTest extends PHPUnit_Framework_TestCase{
         
         $this->_em = $this->doctrineContainer->getEntityManager();
         
-        $usuario = new Entity\Usuario();
-        $usuario->setNome('Corrupto');
-        $usuario->setEnergia(100);
-        $usuario->setEnergiaMaxima(100);
+        $usuario = $this->getUsuario();
         $this->assertEquals('Corrupto', $usuario->getNome());
         
         $this->_em->persist($usuario);
@@ -57,10 +54,8 @@ class UsuarioIntegrationTest extends PHPUnit_Framework_TestCase{
     public function testInventario() {
         $this->_em = $this->doctrineContainer->getEntityManager();
         
-        $usuario = new Entity\Usuario();
+        $usuario = $this->getUsuario();
         $usuario->setNome('Corrupto Inventario');
-        $usuario->setEnergia(100);
-        $usuario->setEnergiaMaxima(100);
                         
         $item = new Entity\Item();
         $item->setNome('Limosine');
@@ -78,6 +73,16 @@ class UsuarioIntegrationTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals(1, $usuarioBanco->getInventario()->count());
         $this->assertInstanceOf('Application\Entity\Inventario', $usuarioBanco->getInventario()->first());
         $this->assertEquals('Limosine', $usuarioBanco->getInventario()->first()->getItem()->getNome());
+    }
+    
+    private function getUsuario() {
+        $usuario = new Entity\Usuario();
+        $usuario->setNome('Corrupto');
+        $usuario->setEnergia(100);
+        $usuario->setEnergiaMaxima(100);
+        $usuario->setEmail('corrupto@senado.gov.br');
+        $usuario->setSenha('123');
+        return $usuario;
     }
     
 }

@@ -1,1 +1,0 @@
-Monetário - Valor: R$ <?=$this->requisito->getValor()?>,00

@@ -1,1 +1,0 @@
-Item - Nome: <?=$this->requisito->getItem()->getNome()?>

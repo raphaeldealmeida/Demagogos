@@ -1,1 +1,0 @@
-Monetário - Valor: R$ <?=$this->beneficio->getValor()?>,00

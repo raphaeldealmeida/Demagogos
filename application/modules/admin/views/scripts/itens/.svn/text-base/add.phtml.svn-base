@@ -1,3 +1,0 @@
-<?=$this->form?>
-<a href="<?=$this->url(array('controller'=>'itens','action'=>'index'));?>">Listar</a> | 
-<a href="<?=$this->url(array('controller'=>'itens','action'=>'delete','id'=> $this->form->getValue('id')));?>">Excluir</a>

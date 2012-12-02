@@ -30,7 +30,7 @@ class UsuarioIntegrationTest extends PHPUnit_Framework_TestCase{
         $this->_em->flush();
         
         $usuarios = $this->_em->createQuery('select u from Application\Entity\Usuario u')->execute();
-        $this->assertEquals(1,count($usuarios));
+        $this->assertEquals(2, count($usuarios)); //FIX: usuário admin
     }
     
     

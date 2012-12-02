@@ -24,10 +24,15 @@ class ModelTestCase {
         $tool->dropDatabase();
         $tool->createSchema($em->getMetadataFactory()->getAllMetadata());
         
-        $a = new \Application\Entity\Admin();
-        $a->setLogin('admin');
-        $a->setSenha('admin');
-        $em->persist($a);
+        $usuario = new \Application\Entity\Usuario();
+
+        $usuario->setNome('admin');
+        $usuario->setEnergia(100);
+        $usuario->setEnergiaMaxima(100);
+        $usuario->setEmail('admin@admin.com.br');
+        $usuario->setSenha('123');
+        
+        $em->persist($usuario);
         $em->flush();
         
         self::$created = true;

@@ -10,23 +10,19 @@
   <link rel="stylesheet" href="/css/application.css" type="text/css" />
 </head>
 <body>
-   <?php
-     if (count($this->messages) > 0) { 
-       printf("<div id='mensagem'>%s</div>", $this->messages[0]); 
-     }
-    ?>
   <div class="navbar">
     <div class="navbar-inner">
       <a class="brand" href="#">Demagogos</a>
       <ul class="nav">
+<? if (Zend_Auth::getInstance()->hasIdentity()): ?>        
         <li>
-          <a href="#">Jogador: <?=$this->usuario->getNome()?></a>
+          <a href="#">Jogador: <?= $this->usuario->getNome() ?></a>
         </li>
         <li>
-          <a href="#">Saldo: <?=$this->usuario->getSaldo()?></a>
+          <a href="#">Saldo: <?= $this->usuario->getSaldo() ?></a>
         </li>
         <li>
-          <a href="#"><?=$this->placeholder('energia'); ?></a>
+          <a href="#"><?= $this->placeholder('energia') ?></a>
         </li>
         
         <li>
@@ -38,9 +34,22 @@
         <li>
           <a href="#">Propriedades</a>
         </li>
+        <li>
+          <a href="<?= $this->url(array('controller' => 'session',
+                 'action' => 'logout', 'module' => 'default')) ?>">
+            Logout
+          </a>
+        </li>
+<? endif; ?>
       </ul>
     </div>
   </div>
+  <? if (count($this->messages) > 0): ?>
+      <div class="alert alert-success">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+       <?= $this->messages[0] ?>
+      </div>
+   <? endif; ?>  
     <?=$this->layout()->content; ?>
 </body>
 </html>

@@ -18,7 +18,7 @@ class Default_IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 
     public function testIndexAction()
     {
-        $params = array('action' => 'doctrine', 'controller' => 'Index', 'module' => 'default');
+        $params = array('action' => 'index', 'controller' => 'Index', 'module' => 'default');
         $urlParams = $this->urlizeOptions($params);
         $url = $this->url($urlParams);
         $this->dispatch($url);

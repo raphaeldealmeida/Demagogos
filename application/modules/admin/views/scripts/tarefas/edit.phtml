@@ -12,9 +12,10 @@
 
 <?if(!$this->tarefa->getRequisitos()->isEmpty()):?>
 <ul>
-<?foreach($this->tarefa->getRequisitos() as $requisito):?>
+<?foreach($this->tarefa->getRequisitos() as $requisito):
+    $className = explode('\\', get_class($requisito)); ?>
     <li>
-        Requisito: <?=$this->partial('_partials/'.end(explode('\\', get_class($requisito))).'.phtml', array('requisito'=>$requisito));?> |
+        Requisito: <?=$this->partial('_partials/'.end($className).'.phtml', array('requisito'=>$requisito));?> |
         <a class="confirm" href="<?=$this->url(array('controller'=>'requisitos', 'action'=>'delete', 'id'=> $requisito->getId(), 'tarefa'=> $this->form->getValue('id')));?>">Excluir</a>
     </li>
 <?endforeach;?>
@@ -31,9 +32,10 @@
 
 <?if(!$this->tarefa->getBeneficios()->isEmpty()):?>
 <ul>
-<?foreach($this->tarefa->getBeneficios() as $beneficio):?>
+<?foreach($this->tarefa->getBeneficios() as $beneficio):
+    $className = explode('\\', get_class($beneficio)); ?>
     <li>
-        Benefício: <?=$this->partial('_partials/'.end(explode('\\', get_class($beneficio))).'.phtml', array('beneficio'=>$beneficio));?> |
+        Benefício: <?=$this->partial('_partials/'.end($className).'.phtml', array('beneficio'=>$beneficio));?> |
         <a class="confirm" href="<?=$this->url(array('controller'=>'beneficios', 'action'=>'delete', 'id'=> $beneficio->getId(), 'tarefa'=> $this->form->getValue('id')));?>">Excluir</a>
     </li>
 <?endforeach;?>

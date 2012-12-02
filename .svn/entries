@@ -11,8 +11,8 @@ https://demagogos.googlecode.com/svn
 37
 jaguarnet7@gmail.com
 has-props
-
-
+has-prop-mods
+svn:special svn:externals svn:needs-lock
 
 
 
@@ -25,15 +25,6 @@ has-props
 
 
 5aa71520-174e-097d-0f73-cc24f7d49647
-
-tests
-dir
-
-application
-dir
-
-library
-dir
 
 .travis.yml
 file
@@ -69,12 +60,21 @@ jaguarnet7@gmail.com
 
 191
 
+application
+dir
+
 bin
 dir
 
 docs
 dir
 
+library
+dir
+
 public
+dir
+
+tests
 dir
 

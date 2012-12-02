@@ -24,8 +24,9 @@
         <td>
             <?if(!$tarefa->getRequisitos()->isEmpty()):?>
             <ul>
-            <?foreach($tarefa->getRequisitos() as $requisito):?>
-                <li>Requisito: <?=$this->partial('_partials/'.end(explode('\\', get_class($requisito))).'.phtml', array('requisito'=>$requisito));?></li>
+            <?foreach($tarefa->getRequisitos() as $requisito):
+                $className = explode('\\', get_class($requisito)); ?>
+                <li>Requisito: <?=$this->partial('_partials/'.end($className).'.phtml', array('requisito'=>$requisito));?></li>
             <?endforeach;?>
             </ul>
             <?endif;?>
@@ -33,8 +34,9 @@
         <td>
             <?if(!$tarefa->getBeneficios()->isEmpty()):?>
             <ul>
-            <?foreach($tarefa->getBeneficios() as $beneficio):?>
-                <li><?=$this->partial('_partials/'.end(explode('\\', get_class($beneficio))).'.phtml', array('beneficio'=>$beneficio));?></li>
+            <?foreach($tarefa->getBeneficios() as $beneficio):
+                $className = explode('\\', get_class($beneficio)); ?>
+                <li><?=$this->partial('_partials/'.end($className).'.phtml', array('beneficio'=>$beneficio));?></li>
             <?endforeach;?>
             </ul>
             <?endif;?>

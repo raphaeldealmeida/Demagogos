@@ -26,6 +26,40 @@ jaguarnet7@gmail.com
 
 5aa71520-174e-097d-0f73-cc24f7d49647
 
+ErrorController.php
+file
+
+
+
+
+2011-10-31T21:15:16.444425Z
+3d490e79590f93c049ab4ed76351ff16
+2011-10-31T15:02:04.457113Z
+13
+jaguarnet7@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1670
+
 IndexController.php
 file
 39
@@ -60,17 +94,14 @@ jaguarnet7@gmail.com
 
 6786
 
-ErrorController.php
+SessionController.php
 file
 
 
 
+add
 
-2011-10-31T21:15:16.444425Z
-3d490e79590f93c049ab4ed76351ff16
-2011-10-31T15:02:04.457113Z
-13
-jaguarnet7@gmail.com
+959a08eec92a957ad336af86aaa0a4cc
 
 
 
@@ -82,15 +113,7 @@ jaguarnet7@gmail.com
 
 
 
-
-
-
-
-
-
-
-
-
-
-1670
+copied
+https://demagogos.googlecode.com/svn/trunk/application/modules/admin/controllers/SessionController.php
+37
 

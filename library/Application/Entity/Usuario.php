@@ -27,6 +27,16 @@ class Usuario{
     protected $nome;
     
     /**
+     * @Column(type="string")
+     */
+    protected $email;
+    
+    /**
+     * @Column(type="string")
+     */
+    protected $senha;
+    
+    /**
      * @Column(type="integer")
      */
     protected $energia;
@@ -148,7 +158,24 @@ class Usuario{
     public function getSaldo() {
         return $this->saldo;
     }
+    
+    public function getEmail() {
+      return $this->email;
+    }
 
+    public function setEmail($email) {
+      $this->email = $email;
+    }
+
+    public function getSenha() {
+      return $this->senha;
+    }
+
+    public function setSenha($senha) {
+      $this->senha = sha1($senha);
+    }
+
+    
         
     /**
      *

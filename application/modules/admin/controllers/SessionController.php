@@ -20,7 +20,7 @@ class Admin_SessionController extends Zend_Controller_Action
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
                 $adapter = new Rph_Auth_Adapter($form->getValue('login'),
-                        $form->getValue('senha'));
+                        sha1($form->getValue('senha')));
                 $result = Zend_Auth::getInstance()->authenticate($adapter);
                 if (Zend_Auth::getInstance()->hasIdentity()){
                     return $this->_helper->redirector('index','index','admin');

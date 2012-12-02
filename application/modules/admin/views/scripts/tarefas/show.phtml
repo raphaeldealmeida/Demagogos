@@ -7,8 +7,12 @@
 <?if(!$this->tarefa->getRequisitos()->isEmpty()):?>
 <h3>Requisitos</h3>
 <ul>
-<?foreach($this->tarefa->getRequisitos() as $requisito):?>
-    <li>Requisito: <?=$this->partial('_partials/'.end(explode('\\', get_class($requisito))).'.phtml', array('requisito'=>$requisito));?></li>
+<?foreach($this->tarefa->getRequisitos() as $requisito):
+    $className = explode('\\', get_class($requisito)); ?>
+    <li>
+      Requisito: <?=$this->partial('_partials/' . end($className) . '.phtml',
+                                   array('requisito' => $requisito))?>
+    </li>
 <?endforeach;?>
 </ul>
 <?endif;?>
@@ -16,8 +20,9 @@
 <?if(!$this->tarefa->getBeneficios()->isEmpty()):?>
 <h3>Beneficios</h3>
 <ul>
-<?foreach($this->tarefa->getBeneficios() as $beneficio):?>
-    <li>Benefício: <?=$this->partial('_partials/'.end(explode('\\', get_class($beneficio))).'.phtml', array('beneficio'=>$beneficio));?></li>
+<?foreach($this->tarefa->getBeneficios() as $beneficio):
+    $className = explode('\\', get_class($beneficio)); ?>
+    <li>Benefício: <?=$this->partial('_partials/'.end($className).'.phtml', array('beneficio'=>$beneficio));?></li>
 <?endforeach;?>
 </ul>
 <?endif;?>

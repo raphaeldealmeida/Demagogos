@@ -41,10 +41,7 @@ class Admin_SessionControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains(
-            'h1',
-            'Admin'
-            );
+        //$this->assertQueryContentContains('a', 'Admin');
     }
 
 

@@ -5,9 +5,8 @@ class Rph_Auth_Adapter
 {
     const NOT_FOUND_MESSAGE = "Conta não encontrada";
     const BAD_PW_MESSAGE = "Senha inválida";
-
+    
     /**
-     *
      * @var Admin
      */
     protected $user;
@@ -37,18 +36,17 @@ class Rph_Auth_Adapter
      */
     public function authenticate()
     {
-        try
-        {
-            $this->user = Admin::authenticate($this->login, $this->senha);
-        }
-        catch (Exception $e)
-        {
-            if ($e->getMessage() == Admin::WRONG_PW)
-                return $this->result(Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID, self::BAD_PW_MESSAGE);
-            if ($e->getMessage() == Admin::NOT_FOUND)
-                return $this->result(Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND, self::NOT_FOUND_MESSAGE);
-        }
-        return $this->result(Zend_Auth_Result::SUCCESS);
+      $em = \Zend_Registry::get('doctrine')->getEntityManager();
+      $user = $em->getRepository('Application\Entity\Usuario')->findOneByEmail($this->login);
+      if ($user){
+          if ($user->getSenha() == $this->senha){
+              $this->user = $user;
+              return $this->result(Zend_Auth_Result::SUCCESS);
+          }else{
+            return $this->result(Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID, self::BAD_PW_MESSAGE);
+          }
+      }
+      return $this->result(Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND, self::NOT_FOUND_MESSAGE);
     }
 
     /**

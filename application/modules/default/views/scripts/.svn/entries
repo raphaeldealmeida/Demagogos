@@ -26,12 +26,19 @@ jaguarnet7@gmail.com
 
 5aa71520-174e-097d-0f73-cc24f7d49647
 
-index
+_partials
 dir
 
 error
 dir
 
-_partials
+index
 dir
+
+session
+dir
+
+
+
+add
 

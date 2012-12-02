@@ -6,6 +6,7 @@ class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
     public function setUp()
     {
         $this->bootstrap = new Zend_Application(APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini');
+        
         parent::setUp();
         $this->loginAdmin('admin', 'admin');
     }
@@ -38,13 +39,15 @@ class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $url = $this->url($urlParams);
         $this->dispatch($url);
         
+        $this->assertResponseCode('200');
+        
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
         $this->assertQueryContentContains('h2', 'Listando Tarefas');
         $this->assertQueryContentContains('ul li a', 'Criar nova Tarefa');
-        //$this->assertQueryContentContains('a[href*="/tarefas/edit/id/"]', 'Editar');
-        //$this->assertQueryContentContains('a[href*="/tarefas/delete/id/"]', 'Excluir');
+        $this->assertQueryContentContains('a[href*="/tarefas/edit/id/"]', 'Editar');
+        $this->assertQueryContentContains('a[href*="/tarefas/delete/id/"]', 'Excluir');
     }
 
     
@@ -57,9 +60,6 @@ class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         Zend_Controller_Action_HelperBroker::addHelper($mockFlashMessenger);
     }
 
-    /**
-     * @group wip
-     */
     public function testAddAction()
     {
         $params = array('action'     => 'add', 
@@ -74,14 +74,14 @@ class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
                                       'passo' => '1'
                       ));
 
-        $this->assertFlashMessenger('Tarefa salva com sucesso.');
+        //$this->assertFlashMessenger('Tarefa salva com sucesso.');
         $this->dispatch($url);
         $this->assertRedirectRegex('#/admin/tarefas/show/id/[0-9]#');
     }
-
+    
     public function testEditAction()
     {
-        $params = array('action' => 'edit', 'controller' => 'Tarefas', 'module' => 'admin');
+        $params = array('action' => 'edit', 'controller' => 'Tarefas', 'module' => 'admin', 'id' => 1);
         $urlParams = $this->urlizeOptions($params);
         $url = $this->url($urlParams);
         $this->dispatch($url);
@@ -92,9 +92,9 @@ class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertXpath("//input[@type='submit' and  @value='Edit']");
     }
 
-    //FIX: Erro do teste de redirecionamento
-    public function _testDeleteAction()
+    public function testDeleteAction()
     {
+        $this->markTestIncomplete('Tratar redirecionamento');
         $params = array('action' => 'delete', 'controller' => 'Tarefas', 'module' => 'default',
             'id' => '5');
         

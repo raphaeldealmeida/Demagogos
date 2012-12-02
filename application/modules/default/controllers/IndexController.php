@@ -150,7 +150,8 @@ class Default_IndexController extends Zend_Controller_Action
     
     public function dashboardAction()
     {
-        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->findOneByNome('FHC');
+        $usuario = Zend_Auth::getInstance()->getIdentity();
+        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->find($usuario->getId());
         if($usuario instanceof Entity\Usuario){
             $idUsuario = $usuario->getId();
 
@@ -185,8 +186,8 @@ class Default_IndexController extends Zend_Controller_Action
     public function realizarAction() {
         $this->_helper->viewRenderer->setNoRender();
         $tarefa_id = (int) $this->_getParam('tarefa_id', 0);
-        
-        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->findOneByNome('FHC');
+        $usuario = Zend_Auth::getInstance()->getIdentity();
+        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->find($usuario->getId());
       
         $tarefa = $this->_em->find('Application\Entity\Tarefa', $tarefa_id);
                         
@@ -205,7 +206,9 @@ class Default_IndexController extends Zend_Controller_Action
     
     public function inventarioAction()
     {
-        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->findOneByNome('FHC');
+        $usuario = Zend_Auth::getInstance()->getIdentity();
+        $usuario = $this->_em->getRepository('Application\Entity\Usuario')->find($usuario->getId());
+        $this->view->usuario = $usuario;
         $this->view->inventario = $usuario->getInventario();
     }
     

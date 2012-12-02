@@ -1,36 +1,8 @@
 <?php
+require_once __DIR__ . '/../../../ControllerTestHelper.php';
 
-class Admin_TarefasControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
+class Admin_TarefasControllerTest extends Application_ControllerTestHelper
 {
-
-    public function setUp()
-    {
-        $this->bootstrap = new Zend_Application(APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini');
-        
-        parent::setUp();
-        $this->loginAdmin('admin', 'admin');
-    }
-    
-    public function teardown()
-    {
-        \Mockery::close();
-    }
-
-    
-    public function loginAdmin($user, $password)
-    {
-        $this->request->setMethod('POST')
-                      ->setPost(array(
-                          'login' => $user,
-                          'senha' => $password,
-                      ));
-        $this->dispatch('/admin/session');
- 
-        $this->resetRequest()
-             ->resetResponse();
- 
-        $this->request->setPost(array());
-    }
 
     public function testIndexAction()
     {

@@ -8,12 +8,12 @@ class Rph_Controller_Plugin_LoginRequired extends Zend_Controller_Plugin_Abstrac
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
 
-        if ($module == 'admin' && $controller != 'session'){
+        if ($module == 'admin' && !in_array($controller, array('session', 'error'))){
             if ($auth->hasIdentity()) {
                 //$nome = $auth->getIdentity()->nome;
             } else {
                 $flash = Zend_Controller_Action_HelperBroker::getStaticHelper('flashMessenger');
-                $flash->addMessage('Usuário não logado');
+                $flash->addMessage(array('error' =>'Usuário não logado'));
                 $request->setModuleName('admin')
                         ->setControllerName('session')
                         ->setActionName('index');

@@ -5,9 +5,6 @@ class Admin_SessionController extends Zend_Controller_Action
 
     public function init()
     {
-        if ($this->_helper->FlashMessenger->hasMessages()) {
-            $this->view->messages = $this->_helper->FlashMessenger->getMessages();
-        }
         $this->_helper->layout->setLayout('admin');
     }
 
@@ -36,6 +33,7 @@ class Admin_SessionController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
+        $this->_helper->FlashMessenger->addMessage(array('success' => 'Você saiu da sua conta.'));
         return $this->_helper->redirector('index');
     }
 }

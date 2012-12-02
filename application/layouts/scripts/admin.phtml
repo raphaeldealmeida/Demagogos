@@ -11,7 +11,7 @@
 <body>
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">Admin</a>
+      <a class="brand" href="<?= $this->url(array('controller' => 'index', 'action' => 'index'))?>">Degagogos: Admin</a>
       <ul class="nav">
         <li>
           <a href="<?= $this->url(array('controller' => 'tarefas',
@@ -42,12 +42,17 @@
       </ul>
     </div>
   </div>
-   <? if (count($this->messages) > 0): ?>
-      <div class="alert alert-success">
+   <? 
+   $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('flashMessenger');
+   if ($flashMessenger->hasMessages()): 
+     foreach($flashMessenger->getMessages() as $message):
+     ?>
+  <div class="alert alert-<?=  key($message)?>">
        <button type="button" class="close" data-dismiss="alert">×</button>
-       <?= $this->messages[0] ?>
+       <?= current($message) ?>
       </div>
-   <? endif; ?>  
+   <? endforeach;
+   endif; ?>  
 <?= $this->layout()->content; ?>
 </body>
 </html>

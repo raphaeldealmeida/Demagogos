@@ -10,9 +10,6 @@ class Admin_RequisitosController extends Zend_Controller_Action{
          * @var Doctrine\ORM\EntityManager
          */
         $this->_em = $this->getInvokeArg('bootstrap')->getResource('doctrine')->getEntityManager();
-        if ($this->_helper->FlashMessenger->hasMessages()) {
-            $this->view->messages = $this->_helper->FlashMessenger->getMessages();
-        }
         $this->_helper->layout->setLayout('admin');
         
     }

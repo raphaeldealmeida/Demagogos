@@ -15,8 +15,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $registry = Zend_Registry::getInstance();
         $registry->set('facebook',$facebook);
     }*/
-    
-    protected function _initAutoload()
+  
+ protected function initHelpers() {
+   //Zend_Controller_Action_HelperBroker::addHelper(array('FlashMessenger', new Zend_Controller_Action_Helper_FlashMessenger()));
+   
+ }
+
+
+ protected function _initAutoload()
     {
             $autoloader = Zend_Loader_Autoloader::getInstance();
             $autoloader->setFallbackAutoloader(true);

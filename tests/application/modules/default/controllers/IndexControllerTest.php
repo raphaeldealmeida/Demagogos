@@ -1,7 +1,7 @@
 <?php
+require_once __DIR__ . '/../../../ControllerTestHelper.php';
 
-class Default_IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
-{
+class Default_IndexControllerTest extends Application_ControllerTestHelper{
 
     
     public function __construct() {

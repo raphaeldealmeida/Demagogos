@@ -9,9 +9,6 @@ class Admin_TarefasController extends Zend_Controller_Action
          * @var Doctrine\ORM\EntityManager
          */
         $this->_em = $this->getInvokeArg('bootstrap')->getResource('doctrine')->getEntityManager();
-        if ($this->_helper->FlashMessenger->hasMessages()) {
-            $this->view->messages = $this->_helper->FlashMessenger->getMessages();
-        }
         $this->_helper->layout->setLayout('admin');
         
     }
@@ -35,7 +32,7 @@ class Admin_TarefasController extends Zend_Controller_Action
             $tarefa = $this->_em->find('Application\Entity\Tarefa', $id);
             $this->view->tarefa = $tarefa;    
         }else{
-            $this->_helper->FlashMessenger('Tarefa não encontrada.');
+            $this->_helper->FlashMessenger->addMessage(array('error' => 'Tarefa não encontrada.'));
             return $this->_helper->redirector('index');
         }
     }
@@ -56,7 +53,7 @@ class Admin_TarefasController extends Zend_Controller_Action
                 $tarefa = new Entity\Tarefa($nome, $custo, $passo);
                 $this->_em->persist($tarefa);
                 $this->_em->flush();
-                $this->_helper->FlashMessenger('Tarefa salva com sucesso.');
+                $this->_helper->FlashMessenger->addMessage(array('success' => 'Tarefa salva com sucesso.'));
                 return $this->_helper->redirector('show', 'tarefas', 'admin', array('id'=>$tarefa->getId()));
             } else {
                 $form->populate($formData);
@@ -81,10 +78,10 @@ class Admin_TarefasController extends Zend_Controller_Action
                 $tarefa->setPasso($form->getValue('passo'));
                 $this->_em->persist($tarefa);
                 $this->_em->flush();
-                $this->_helper->FlashMessenger('Tarafa editada com sucesso.');
+                $this->_helper->FlashMessenger->addMessage(array('success' => 'Tarafa editada com sucesso.'));
                 return $this->_helper->redirector('show', 'tarefas', 'admin', array('id'=>$tarefa->getId()));
             } else {
-                $this->_helper->FlashMessenger('Ocorreu um erro na edição da tarafa.');
+                $this->_helper->FlashMessenger->addMessage(array('error' => 'Ocorreu um erro na edição da tarafa.'));
                 $form->populate($formData);
             }
         } else {
@@ -95,7 +92,7 @@ class Admin_TarefasController extends Zend_Controller_Action
                 $form->populate(array('id'=> $id ,'nome'=>$tarefa->getNome(), 'custo' => $tarefa->getCusto(), 'passo' => $tarefa->getPasso()));
                 $this->view->tarefa = $tarefa;
             }else{
-                $this->_helper->FlashMessenger('Tarafa não encontrada.');
+                $this->_helper->FlashMessenger->addMessage(array('error' => 'Tarafa não encontrada.'));
                 return $this->_helper->redirector('index');
             }
         }
@@ -109,7 +106,7 @@ class Admin_TarefasController extends Zend_Controller_Action
             $tarefa = $this->_em->find('Application\Entity\Tarefa', $id);
             $this->_em->remove($tarefa);
             //$this->_em->flush();
-            $this->_helper->FlashMessenger('Tarafa excluida com sucesso.');
+            $this->_helper->FlashMessenger->addMessage(array('success' => 'Tarafa excluida com sucesso.'));
             return $this->_helper->redirector('index');
         }
     }

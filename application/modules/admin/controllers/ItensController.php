@@ -9,9 +9,6 @@ class Admin_ItensController extends Zend_Controller_Action
          * @var Doctrine\ORM\EntityManager
          */
         $this->_em = $this->getInvokeArg('bootstrap')->getResource('doctrine')->getEntityManager();
-        if ($this->_helper->FlashMessenger->hasMessages()) {
-            $this->view->messages = $this->_helper->FlashMessenger->getMessages();
-        }
         $this->_helper->layout->setLayout('admin');
         
     }
@@ -42,7 +39,7 @@ class Admin_ItensController extends Zend_Controller_Action
                 $this->_em->persist($item);
                 $this->_em->flush();
                 
-                $this->_helper->FlashMessenger('Item criado com sucesso');
+                $this->_helper->FlashMessenger(array('success' => 'Item criado com sucesso'));
                 return $this->_helper->redirector('index');
             } else {
                 $form->populate($formData);
@@ -65,10 +62,11 @@ class Admin_ItensController extends Zend_Controller_Action
                 $item->setNome($form->getValue('nome'));
                 $this->_em->persist($item);
                 $this->_em->flush();
-                $this->_helper->FlashMessenger('Item editado com sucesso.');
-                return $this->_helper->redirector('show', 'itens', 'admin', array('id'=>$item->getId()));
+                $this->_helper->FlashMessenger(array('success' => 'Item editado com sucesso.'));
+                //return $this->_helper->redirector('show', 'itens', 'admin', array('id'=>$item->getId()));
+                return $this->_helper->redirector('index', 'itens', 'admin');
             } else {
-                $this->_helper->FlashMessenger('Ocorreu um erro na edição do Item.');
+                $this->_helper->FlashMessenger(array('error' => 'Ocorreu um erro na edição do Item.'));
                 $form->populate($formData);
             }
         } else {
@@ -89,7 +87,7 @@ class Admin_ItensController extends Zend_Controller_Action
             $item = $this->_em->find('Application\Entity\Item', $id);
             $this->_em->remove($item);
             $this->_em->flush();
-            $this->_helper->FlashMessenger('Item excluido com sucesso.');
+            $this->_helper->FlashMessenger(array('success' => 'Item excluido com sucesso.'));
             return $this->_helper->redirector('index');
         }
     }

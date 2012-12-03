@@ -44,12 +44,17 @@
       </ul>
     </div>
   </div>
-  <? if (count($this->messages) > 0): ?>
-      <div class="alert alert-success">
+   <? 
+   $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('flashMessenger');
+   if ($flashMessenger->hasMessages()): 
+     foreach($flashMessenger->getMessages() as $message):
+     ?>
+  <div class="alert alert-<?=  key($message)?>">
        <button type="button" class="close" data-dismiss="alert">×</button>
-       <?= $this->messages[0] ?>
+       <?= current($message) ?>
       </div>
-   <? endif; ?>  
+   <? endforeach;
+   endif; ?>    
     <?=$this->layout()->content; ?>
 </body>
 </html>

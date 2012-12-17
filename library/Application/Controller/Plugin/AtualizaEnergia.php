@@ -11,11 +11,13 @@ class Application_Controller_Plugin_AtualizaEnergia extends Zend_Controller_Plug
             $em = Zend_Registry::get('doctrine')->getEntityManager();
             
             //TODO: Usuario fixo
-            $user = $em->getRepository('Application\Entity\Usuario')->findOneByNome('FHC');
-            if(!is_null($user)){
-                $content = "Energia: {$user->getEnergia()} / {$user->getEnergiaMaxima()}";
+            $usuario = Zend_Auth::getInstance()->getIdentity();
+            $usuario = $_SESSION['default']['storage'];
+            $usuario = $em->getRepository('Application\Entity\Usuario')->find($usuario->getId());
+            if(!is_null($usuario)){
+                $content = "Energia: {$usuario->getEnergia()} / {$usuario->getEnergiaMaxima()}";
 
-                $intervalo = $user->atualizarEnergia();
+                $intervalo = $usuario->atualizarEnergia();
                 if(!is_null($intervalo)){
                    $proximaRecarga = $intervalo->format('%I:%S');
                    $proximaRecarga = "Mas em <span>$proximaRecarga<span>";

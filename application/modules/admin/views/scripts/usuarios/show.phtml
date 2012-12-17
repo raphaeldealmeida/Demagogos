@@ -1,6 +1,7 @@
 <h2><?= $this->usuario->getNome() ?></h2>
 
 <p>Nome: <?= $this->usuario->getNome() ?></p>
+<p>Saldo: <?= $this->usuario->getSaldo() ?></p>
 <p>Energia: <?= $this->usuario->getEnergia() ?> / <?= $this->usuario->getEnergiaMaxima() ?></p>
 
 <a href="<?= $this->url(array('controller'=>'usuarios','action'=>'index'));?>">Listar</a> | 

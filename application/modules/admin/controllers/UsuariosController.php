@@ -90,7 +90,7 @@ class Admin_UsuariosController extends Zend_Controller_Action {
         
         $this->_em->persist($usuario);
         $this->_em->flush();
-        $this->_helper->FlashMessenger('Usuario editado com sucesso.');
+        $this->_helper->FlashMessenger->addMessage(array('success' =>'Usuario editado com sucesso.'));
         return $this->_helper->redirector('show', 'usuarios', 'admin', array('id' => $usuario->getId()));
       } else {
         $this->_helper->FlashMessenger->addMessage(array('error' => 'Ocorreu um erro na edição do usuario.'));
@@ -104,7 +104,8 @@ class Admin_UsuariosController extends Zend_Controller_Action {
         $form->populate(array('id' => $id, 
                               'nome' => $usuario->getNome(), 
                               'energia' => $usuario->getEnergia(),
-                              'email' => $usuario->getEmail()
+                              'email' => $usuario->getEmail(),
+                              'saldo' => $usuario->getSaldo()
                       )
                 );
         $this->view->usuario = $usuario;

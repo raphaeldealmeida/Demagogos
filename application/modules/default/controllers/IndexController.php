@@ -198,7 +198,7 @@ class Default_IndexController extends Zend_Controller_Action
             $this->_em->persist($usuario);
             $this->_em->flush();
         } catch (Exception $e) {
-            $this->_helper->FlashMessenger($e->getMessage());
+            $this->_helper->FlashMessenger->addMessage(array('error' => $e->getMessage()));
         }
 
         return $this->_redirect('/index/dashboard');

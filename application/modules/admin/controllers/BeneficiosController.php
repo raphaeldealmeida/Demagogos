@@ -44,7 +44,7 @@ class Admin_BeneficiosController extends Zend_Controller_Action{
                 
                 $this->_em->persist($beneficio);
                 $this->_em->flush();
-                $this->_helper->FlashMessenger('Benefício incluído com sucesso');
+                $this->_helper->FlashMessenger(array('success' => 'Benefício incluído com sucesso'));
 
                 return $this->_helper->redirector('edit', 'tarefas', 'admin', array('id' => $tarefa_id));
             } else {
@@ -62,7 +62,7 @@ class Admin_BeneficiosController extends Zend_Controller_Action{
             $beneficio = $this->_em->find('Application\Entity\Beneficio', $id);
             $this->_em->remove($beneficio);
             $this->_em->flush();
-            $this->_helper->FlashMessenger('Benefício excluido com sucesso');
+            $this->_helper->FlashMessenger(array('success' => 'Benefício excluido com sucesso'));
             return $this->_helper->redirector('edit', 'tarefas', 'admin', array('id' => $tarefa_id));
         }
     }

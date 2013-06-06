@@ -52,7 +52,7 @@ class Admin_RequisitosController extends Zend_Controller_Action{
                 
                 $this->_em->persist($requisito);
                 $this->_em->flush();
-                $this->_helper->FlashMessenger('Requisito incluído com sucesso');
+                $this->_helper->FlashMessenger(array('success' => 'Requisito incluído com sucesso'));
 
                 return $this->_helper->redirector('edit', 'tarefas', 'admin', array('id' => $tarefa_id));
             } else {
@@ -70,7 +70,7 @@ class Admin_RequisitosController extends Zend_Controller_Action{
             $requisito = $this->_em->find('Application\Entity\Requisito', $id);
             $this->_em->remove($requisito);
             $this->_em->flush();
-            $this->_helper->FlashMessenger('Requisito excluido com sucesso');
+            $this->_helper->FlashMessenger(array('success' => 'Requisito excluido com sucesso'));
             return $this->_helper->redirector('edit', 'tarefas', 'admin', array('id' => $tarefa_id));
         }
     }

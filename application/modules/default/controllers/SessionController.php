@@ -36,7 +36,8 @@ class Default_SessionController extends Zend_Controller_Action
               if($this->loginCheck($form->getValue('login'), $form->getValue('senha'))){
                 return $this->_helper->redirector('index', 'index', 'default');
               }else{
-                $this->_helper->FlashMessenger(implode(' ', $result->getMessages()));
+                $this->_helper->FlashMessenger(implode(' ', $this->result->getMessages()));
+                return $this->forward('index');
               }
             } else {
                 $form->populate($formData);
@@ -49,7 +50,7 @@ class Default_SessionController extends Zend_Controller_Action
     private function loginCheck($login, $senha) {
       
       $adapter = new Rph_Auth_Adapter($login, sha1($senha));
-      $result = Zend_Auth::getInstance()->authenticate($adapter);
+      $this->result = Zend_Auth::getInstance()->authenticate($adapter);
       return Zend_Auth::getInstance()->hasIdentity();
   }
 

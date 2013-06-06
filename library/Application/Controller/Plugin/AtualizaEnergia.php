@@ -12,7 +12,7 @@ class Application_Controller_Plugin_AtualizaEnergia extends Zend_Controller_Plug
             
             //TODO: Usuario fixo
             $usuario = Zend_Auth::getInstance()->getIdentity();
-            $usuario = $_SESSION['default']['storage'];
+            $usuario = (new Zend_Session_Namespace('default'))->storage;
             $usuario = $em->getRepository('Application\Entity\Usuario')->find($usuario->getId());
             if(!is_null($usuario)){
                 $content = "Energia: {$usuario->getEnergia()} / {$usuario->getEnergiaMaxima()}";

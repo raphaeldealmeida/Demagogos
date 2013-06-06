@@ -33,6 +33,7 @@ class Form_Tarefa extends Zend_Form
         
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
+        $submit->setAttrib('class', 'btn btn-primary');
         $this->addElements(array($id, $nome, $custo, $passo, $submit));
     }
 
